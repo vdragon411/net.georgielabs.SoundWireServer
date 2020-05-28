@@ -1,0 +1,18 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=SoundWire Server
+Comment=Server program for SoundWire Android app
+
+# Path should be set properly to find executable, or give full pathname here
+Exec=SoundWireServer
+
+# Place icon file in ~/.local/share/icons or similar, or give full pathname
+Icon=net.georgielabs.SoundWireServer
+
+# The following should match the executable basename
+StartupWMClass=SoundWireServer
+
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;
