@@ -1,7 +1,7 @@
 {
     "app-id" : "net.georgielabs.SoundWireServer",
     "runtime" : "org.kde.Platform",
-    "runtime-version" : "5.14",
+    "runtime-version" : "5.15",
     "sdk" : "org.kde.Sdk",
     "command" : "SoundWireServer",
     "finish-args" : [
@@ -43,7 +43,21 @@
                 "install -D sw-icon.png /app/share/icons/hicolor/128x128/apps/net.georgielabs.SoundWireServer.png",
                 "install -D sw-icon.png /app/share/icons/hicolor/256x256/apps/net.georgielabs.SoundWireServer.png",
                 "install -D sw-icon.png /app/share/icons/hicolor/512x512/apps/net.georgielabs.SoundWireServer.png"
-            ]
+            ],
+	    "sources": [
+		{
+		    "type": "file",
+		    "path": "SoundWireServer"
+		},
+		{
+		    "type": "file",
+		    "path": "SoundWire-Server.desktop"
+		},
+		{
+	    	    "type": "file",
+		    "path": "sw-icon.png"
+		}
+	    ]
         }
     ]
 }

@@ -1,0 +1,41 @@
+---
+app-id: net.georgielabs.SoundWireServer
+runtime: org.kde.Platform
+runtime-version: '5.15'
+sdk: org.kde.Sdk
+command: SoundWireServer
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --socket=pulseaudio
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /lib/debug
+  - /lib/lib*.a
+  - /lib/lib*.la
+modules:
+  - name: portaudio
+    sources:
+    - type: archive
+      url: http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz
+      sha512: 7ec692cbd8c23878b029fad9d9fd63a021f57e60c4921f602995a2fca070c29f17a280c7f2da5966c4aad29d28434538452f4c822eacf3a60af59a6dc8e9704c
+  - name: soundwireserver
+    buildsystem: simple
+    build-commands:
+      - install -D SoundWireServer /app/bin/SoundWireServer
+      - install -D SoundWire-Server.desktop /app/share/applications/net.georgielabs.SoundWireServer.desktop
+      - install -D sw-icon.png /app/share/icons/hicolor/64x64/apps/net.georgielabs.SoundWireServer.png
+      - install -D sw-icon.png /app/share/icons/hicolor/128x128/apps/net.georgielabs.SoundWireServer.png
+      - install -D sw-icon.png /app/share/icons/hicolor/256x256/apps/net.georgielabs.SoundWireServer.png
+      - install -D sw-icon.png /app/share/icons/hicolor/512x512/apps/net.georgielabs.SoundWireServer.png
+    sources:
+      - type: file
+        path: SoundWireServer
+      - type: file
+        path: SoundWire-Server.desktop
+      - type: file
+        path: sw-icon.png
+  
