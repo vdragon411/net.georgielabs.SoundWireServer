@@ -10,16 +10,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:kde-5.15
+      options: --privileged
     steps:
       - uses: actions/checkout@v2
       - name: building flatpak bundle
-        uses: nahuelwexd/flatpak-builder-action@kde-5.15
+        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
         with:
-          manifest-path: net.georgielabs.SoundWireServer
-          meson-args: -Dprofile=development
-          flatpak-module: soundwireserver
-          app-id: net.georgielabs.SoundWireServer
           bundle: net.georgielabs.SoundWireServer.flatpak
+          manifest-path: net.georgielabs.SoundWireServer.yml
+          cache-key: flatpak-builder-${{ github.sha }}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
