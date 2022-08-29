@@ -23,9 +23,9 @@ jobs:
           cache-key: flatpak-builder-${{ github.sha }}
       - name: Release
         uses: softprops/action-gh-release@v1
-        #if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          tag_name: latest
+          #tag_name: latest
           files: net.georgielabs.SoundWireServer.flatpak
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
